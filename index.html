@@ -4,227 +4,215 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CASE 0108.EXE — NO SECURITY AGENCY</title>
+<title>CASO 0108 — NO SECURITY AGENCY</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
 
-    body {
-        margin: 0;
-        background:
-            radial-gradient(circle at center, #111 0%, #050505 45%, #000 100%);
-        color: #bdbdbd;
-        font-family: "Courier New", monospace;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background-image:
-            repeating-linear-gradient(
-                0deg,
-                rgba(255,255,255,0.015) 0px,
-                rgba(255,255,255,0.015) 1px,
-                transparent 1px,
-                transparent 4px
-            );
-        z-index: 20;
-    }
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at center, #111 0%, #050505 45%, #000 100%);
+    color: #aaa;
+    font-family: "Courier New", monospace;
+    min-height: 100vh;
+}
 
-    .top {
-        border-bottom: 1px solid #333;
-        padding: 18px 25px;
-        font-size: 13px;
-        letter-spacing: 3px;
-        color: #777;
-    }
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.015) 0px,
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 45px 0 80px;
+}
+
+.top {
+    border-bottom: 1px solid #333;
+    padding: 18px 25px;
+    color: #666;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.header {
+    border: 1px solid #333;
+    padding: 25px;
+    background: rgba(0,0,0,.6);
+}
+
+.agency {
+    font-size: 30px;
+    color: #ddd;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.sub {
+    margin-top: 8px;
+    color: #555;
+    letter-spacing: 2px;
+}
+
+.document {
+    margin-top: 25px;
+    border: 1px solid #292929;
+    background: rgba(0,0,0,.7);
+    padding: 25px;
+}
+
+.title {
+    font-size: 25px;
+    color: #ccc;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    border-top: 1px solid #292929;
+    border-bottom: 1px solid #292929;
+
+    padding: 18px 0;
+    margin-bottom: 30px;
+}
+
+.info div {
+    color: #666;
+    font-size: 13px;
+}
+
+.info span {
+    color: #aaa;
+}
+
+.red {
+    color: #650000 !important;
+    font-weight: bold;
+}
+
+h2 {
+    color: #888;
+    font-size: 15px;
+    letter-spacing: 3px;
+    border-bottom: 1px solid #252525;
+    padding-bottom: 8px;
+    margin-top: 35px;
+}
+
+p {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.quote {
+    border-left: 2px solid #555;
+    padding: 14px 20px;
+    margin: 20px 0;
+    color: #777;
+    font-style: italic;
+}
+
+.warning {
+    border: 1px solid #3b0000;
+    background: rgba(45,0,0,.12);
+    padding: 18px;
+    margin-top: 25px;
+}
+
+.warning-title {
+    color: #700000;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.secret {
+    color: #000;
+    background: #000;
+}
+
+.secret::selection {
+    color: #fff;
+    background: #555;
+}
+
+.language {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+.language button {
+    background: #050505;
+    border: 1px solid #333;
+    color: #777;
+    padding: 6px 9px;
+    cursor: pointer;
+    font-family: "Courier New", monospace;
+}
+
+.language button:hover {
+    color: #fff;
+    border-color: #777;
+}
+
+.lang {
+    display: none;
+}
+
+.lang.active {
+    display: block;
+}
+
+@media(max-width:650px) {
 
     .container {
-        width: 90%;
-        max-width: 1000px;
-        margin: auto;
-        padding: 35px 0 80px;
-    }
-
-    .header {
-        border: 1px solid #333;
-        padding: 25px;
-        background: rgba(0,0,0,0.55);
-        box-shadow: 0 0 25px rgba(0,0,0,0.8);
+        width: 94%;
     }
 
     .agency {
-        font-size: 32px;
-        color: #ddd;
-        letter-spacing: 5px;
-        font-weight: bold;
-    }
-
-    .sub {
-        margin-top: 8px;
-        color: #666;
-        font-size: 13px;
-        letter-spacing: 2px;
-    }
-
-    .warning {
-        margin-top: 25px;
-        border-left: 3px solid #600000;
-        padding: 15px;
-        background: rgba(50,0,0,0.12);
-        color: #888;
-        line-height: 1.7;
-    }
-
-    .document {
-        margin-top: 25px;
-        border: 1px solid #292929;
-        background: rgba(0,0,0,0.65);
-        padding: 25px;
-    }
-
-    .document-title {
-        font-size: 24px;
-        color: #ccc;
-        letter-spacing: 4px;
-        margin-bottom: 25px;
-    }
-
-    .red {
-        color: #610000;
-        font-weight: bold;
+        font-size: 21px;
     }
 
     .info {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        border-top: 1px solid #292929;
-        border-bottom: 1px solid #292929;
-        padding: 18px 0;
-        margin-bottom: 25px;
+        grid-template-columns: 1fr;
     }
 
-    .info div {
-        font-size: 13px;
-        color: #777;
-    }
-
-    .info span {
-        color: #aaa;
-    }
-
-    h2 {
-        color: #999;
-        font-size: 15px;
-        letter-spacing: 3px;
-        margin-top: 35px;
-        border-bottom: 1px solid #252525;
-        padding-bottom: 8px;
-    }
-
-    p {
-        font-size: 14px;
-        line-height: 1.9;
-        color: #888;
-    }
-
-    .classified {
-        color: #000;
-        background: #000;
-        user-select: text;
-    }
-
-    .classified::selection {
-        background: #ddd;
-        color: #000;
-    }
-
-    .quote {
-        border-left: 2px solid #555;
-        padding: 15px 20px;
-        margin: 20px 0;
-        color: #777;
-        font-style: italic;
-        background: rgba(255,255,255,0.015);
-    }
-
-    .danger {
-        border: 1px solid #3b0000;
-        background: rgba(45,0,0,0.12);
+    .document {
         padding: 18px;
-        margin-top: 25px;
     }
 
-    .danger-title {
-        color: #700000;
-        letter-spacing: 3px;
-        margin-bottom: 10px;
-    }
+}
 
-    .footer {
-        text-align: center;
-        margin-top: 45px;
-        color: #333;
-        font-size: 11px;
-        letter-spacing: 2px;
-    }
-
-    .language {
-        position: fixed;
-        right: 15px;
-        top: 15px;
-        z-index: 30;
-        display: flex;
-        gap: 5px;
-    }
-
-    .language button {
-        background: #050505;
-        border: 1px solid #333;
-        color: #777;
-        padding: 6px 9px;
-        font-family: "Courier New", monospace;
-        cursor: pointer;
-    }
-
-    .language button:hover {
-        color: white;
-        border-color: #666;
-    }
-
-    .lang {
-        display: none;
-    }
-
-    .lang.active {
-        display: block;
-    }
-
-    @media (max-width: 650px) {
-        .agency {
-            font-size: 22px;
-            letter-spacing: 3px;
-        }
-
-        .info {
-            grid-template-columns: 1fr;
-        }
-
-        .container {
-            width: 94%;
-        }
-
-        .document {
-            padding: 18px;
-        }
-    }
 </style>
 </head>
 
@@ -242,489 +230,662 @@
 
 <div class="container">
 
-    <div class="header">
-        <div class="agency">NO SECURITY AGENCY</div>
-        <div class="sub">
-            ESTABLISHED 1899 — RESEARCH / CONTAINMENT / SIMULATION
+<div class="header">
+
+    <div class="agency">
+        NO SECURITY AGENCY
+    </div>
+
+    <div class="sub">
+        ESTABLISHED 1899 — RESEARCH / SIMULATION / CONTAINMENT
+    </div>
+
+</div>
+
+
+<!-- ================= ESPAÑOL ================= -->
+
+<div id="es" class="document lang active">
+
+    <div class="title">
+        CASO: 0108
+    </div>
+
+    <div class="info">
+
+        <div>
+            ESTADO:
+            <span class="red">ACTIVO</span>
         </div>
 
-        <div class="warning">
-            ARCHIVO RESTRINGIDO — CASE 0108.EXE
+        <div>
+            IDENTIFICACIÓN:
+            <span>L.O.B</span>
         </div>
+
+        <div>
+            ARCHIVO DE ORIGEN:
+            <span>LYRA</span>
+        </div>
+
+        <div>
+            EDAD DEL ARCHIVO:
+            <span>21 AÑOS</span>
+        </div>
+
+        <div>
+            TIPO:
+            <span>COPIA MENTAL</span>
+        </div>
+
+        <div>
+            NIVEL DE OBSERVACIÓN:
+            <span>V</span>
+        </div>
+
+        <div>
+            CUERPO:
+            <span>ÁRBOL CLÁSICO DE ROBLOX</span>
+        </div>
+
+        <div>
+            UBICACIÓN:
+            <span>SIMULACIÓN R</span>
+        </div>
+
     </div>
 
 
-    <!-- ================= ESPAÑOL ================= -->
+    <h2>DESCRIPCIÓN DEL EXPERIMENTO</h2>
 
-    <div id="es" class="document lang active">
+    <p>
+        El caso 0108 corresponde a una copia del archivo mental
+        perteneciente a <b>Lyra</b>.
+    </p>
 
-        <div class="document-title">
-            CASO: 0108.EXE
+    <p>
+        La copia conserva los mismos datos de edad registrados en
+        el archivo original:
+        <b>21 años.</b>
+    </p>
+
+    <p>
+        El objetivo inicial del experimento consiste en investigar
+        cómo se comporta una copia mental de Lyra cuando es colocada
+        dentro de un cuerpo diferente al utilizado por el sujeto
+        original.
+    </p>
+
+    <p>
+        La entidad recibió el nombre experimental:
+    </p>
+
+    <div class="quote">
+        L.O.B
+    </div>
+
+
+    <h2>CUERPO ASIGNADO</h2>
+
+    <p>
+        Para el experimento se utilizó un cuerpo basado en un
+        <b>árbol clásico de Roblox</b>.
+    </p>
+
+    <p>
+        El modelo fue modificado para incorporar dos piernas
+        formadas como raíces, permitiendo que la entidad pueda
+        desplazarse por la simulación.
+    </p>
+
+    <p>
+        La apariencia inicial de L.O.B no produjo reacciones
+        negativas dentro de la simulación.
+    </p>
+
+
+    <h2>PRIMERA OBSERVACIÓN</h2>
+
+    <p>
+        Después de despertar, L.O.B comenzó a explorar el entorno
+        de manera independiente.
+    </p>
+
+    <p>
+        Durante las primeras horas no se registraron comportamientos
+        agresivos.
+    </p>
+
+    <p>
+        La entidad caminó por diferentes sectores del mapa,
+        observó los elementos del entorno y se acercó a varios
+        NPCs sin presentar conductas hostiles.
+    </p>
+
+    <div class="quote">
+        REGISTRO: COMPORTAMIENTO NORMAL
+    </div>
+
+
+    <h2>PRUEBA CON NPC — MR.COOL</h2>
+
+    <p>
+        Para la siguiente prueba se introdujeron varios NPCs
+        dentro de la simulación.
+    </p>
+
+    <p>
+        La reacción de L.O.B permaneció estable hasta la aparición
+        del NPC basado en <b>MR.COOL</b>.
+    </p>
+
+    <p>
+        Inmediatamente después de detectar al NPC, la entidad
+        permaneció inmóvil durante varios segundos.
+    </p>
+
+    <p>
+        Posteriormente comenzó a <b>acecharlo</b>.
+    </p>
+
+    <p>
+        L.O.B siguió al NPC a cierta distancia, evitando acercarse
+        directamente.
+    </p>
+
+    <p>
+        Después de varios segundos, la entidad comenzó a desplazarse
+        rápidamente hacia el NPC.
+    </p>
+
+    <div class="warning">
+
+        <div class="warning-title">
+            INCIDENTE REGISTRADO
         </div>
 
-        <div class="info">
-            <div>ESTADO: <span class="red">ACTIVO</span></div>
-            <div>IDENTIFICACIÓN: <span>L.O.V</span></div>
-
-            <div>ORIGEN: <span>ARCHIVO MENTAL — LYRA (MYRA) <span class="classified">COPIA ████████</span></span></div>
-            <div>FECHA: <span>27/09/2006</span></div>
-
-            <div>NIVEL DE OBSERVACIÓN: <span>V</span></div>
-            <div>UBICACIÓN: <span>SIMULACIÓN R — SECTOR BOSQUE</span></div>
-        </div>
-
-
-        <h2>DESCRIPCIÓN</h2>
-
         <p>
-            La entidad denominada <span class="red">L.O.V</span> corresponde a una copia
-            del archivo mental perteneciente a <span class="classified">Lyra (Myra) ████████</span>.
-        </p>
-
-        <p>
-            El procedimiento de transferencia fue realizado utilizando
-            <span class="classified">████████████████████████</span>.
-        </p>
-
-        <p>
-            A diferencia del sujeto original, esta copia no fue introducida
-            en el avatar utilizado por Myra.
-        </p>
-
-        <p>
-            El archivo fue colocado dentro del cuerpo de un
-            <b>árbol clásico de Roblox</b>.
-        </p>
-
-        <p>
-            Tras la activación, L.O.V permaneció inmóvil durante varios minutos.
-            Al despertar, presentó signos evidentes de confusión.
-        </p>
-
-        <p>
-            El procedimiento psicológico utilizado con Myra no fue repetido.
-            L.O.V <span class="red">NO DESPERTÓ DENTRO DE UNA CAMA.</span>
-        </p>
-
-
-        <h2>COMPORTAMIENTO</h2>
-
-        <p>
-            Durante las primeras horas, L.O.V comenzó a explorar el entorno.
-            Los registros indican que rápidamente identificó inconsistencias
+            L.O.B atacó al NPC de MR.COOL y provocó su destrucción
             dentro de la simulación.
         </p>
 
         <p>
-            La entidad comenzó a mostrar hostilidad hacia determinados
-            elementos relacionados con <b>MR.COOL</b>.
+            No se había registrado ninguna conducta similar
+            anteriormente.
         </p>
-
-        <p>
-            Posteriormente comenzó a referirse a sí misma utilizando el nombre:
-        </p>
-
-        <div class="quote">
-            "L.O.V"
-        </div>
-
-        <p>
-            No se ha determinado si el nombre fue creado espontáneamente
-            por la entidad o si corresponde a información presente en
-            el archivo mental original.
-        </p>
-
-
-        <h2>SIMULACIÓN SEPARADA</h2>
-
-        <p>
-            Debido a la inestabilidad presentada por L.O.V, se decidió
-            mantenerla en una simulación diferente a la utilizada por Myra.
-        </p>
-
-        <p>
-            El entorno fue construido tomando como referencia un
-            <b>bosque clásico de Roblox</b>.
-        </p>
-
-        <p>
-            Dentro de la simulación se colocaron periódicamente NPCs
-            con apariencia y comportamiento basados en <b>MR.COOL</b>.
-        </p>
-
-        <p>
-            El objetivo era registrar la reacción de L.O.V.
-        </p>
-
-        <p>
-            Los resultados fueron considerados
-            <span class="classified">████████████████████████</span>.
-        </p>
-
-        <p>
-            L.O.V mostró una respuesta inmediatamente hostil ante uno
-            de los NPCs.
-        </p>
-
-        <p>
-            Durante una de las pruebas, la entidad atacó al NPC y posteriormente
-            lo <b>destruyó por completo</b>.
-        </p>
-
-        <div class="danger">
-            <div class="danger-title">REGISTRO DE FUERZA</div>
-
-            <p>
-                NIVEL DETECTADO:
-                <span class="red">ANORMALMENTE ALTO</span>
-            </p>
-
-            <p>
-                OBSERVACIÓN:
-                <span class="classified">
-                    █████████████████████████████
-                </span>
-            </p>
-        </div>
-
-
-        <h2>INTENTOS DE ESCAPE</h2>
-
-        <p>
-            Se han registrado múltiples intentos de L.O.V por abandonar
-            la simulación.
-        </p>
-
-        <p>
-            La entidad ha intentado encontrar límites físicos del mapa,
-            zonas sin cargar y puntos de acceso utilizados por los sistemas
-            de mantenimiento.
-        </p>
-
-        <p>
-            En varias ocasiones permaneció frente a los límites del escenario
-            durante períodos prolongados.
-        </p>
-
-        <p>
-            Posteriormente comenzó a repetir:
-        </p>
-
-        <div class="quote">
-            "ESTO NO ES REAL."
-        </div>
-
-        <p>
-            <span class="classified">████████████████████████████████</span>
-        </p>
-
-
-        <h2>NOTA DEL PERSONAL</h2>
-
-        <div class="quote">
-            "L.O.V no debe ser tratada como una copia incompleta."
-            <br><br>
-
-            "Los registros demuestran que conserva suficientes recuerdos,
-            patrones de comportamiento y capacidades cognitivas del archivo original."
-            <br><br>
-
-            "Lo que no sabemos es qué más pudo haber cambiado durante la copia."
-            <br><br>
-
-            — <span class="classified">████████████</span>
-        </div>
-
-        <div class="footer">
-            ARCHIVO 0108.EXE — ESTADO DEL SUJETO: ACTIVO<br><br>
-            UNAUTHORIZED ACCESS — █████████
-        </div>
 
     </div>
 
 
-    <!-- ================= ENGLISH ================= -->
+    <h2>ANÁLISIS</h2>
 
-    <div id="en" class="document lang">
+    <p>
+        El comportamiento observado sugiere que la copia mental
+        conserva algún tipo de asociación con MR.COOL.
+    </p>
 
-        <div class="document-title">
-            CASE: 0108.EXE
-        </div>
+    <p>
+        La naturaleza exacta de dicha asociación todavía se
+        encuentra bajo investigación.
+    </p>
 
-        <div class="info">
-            <div>STATUS: <span class="red">ACTIVE</span></div>
-            <div>IDENTIFICATION: <span>L.O.V</span></div>
+    <p>
+        La respuesta de L.O.B no fue provocada por los demás NPCs.
+        El comportamiento agresivo apareció únicamente después
+        de identificar al NPC de MR.COOL.
+    </p>
 
-            <div>ORIGIN: <span>MENTAL FILE — LYRA (MYRA) <span class="classified">COPY ████████</span></span></div>
-            <div>DATE: <span>27/09/2006</span></div>
-
-            <div>OBSERVATION LEVEL: <span>V</span></div>
-            <div>LOCATION: <span>SIMULATION R — FOREST SECTOR</span></div>
-        </div>
-
-
-        <h2>DESCRIPTION</h2>
-
-        <p>
-            The entity designated as <span class="red">L.O.V</span> corresponds
-            to a copy of the mental file belonging to
-            <span class="classified">Lyra (Myra) ████████</span>.
-        </p>
-
-        <p>
-            The transfer procedure was performed using
-            <span class="classified">████████████████████████</span>.
-        </p>
-
-        <p>
-            Unlike the original subject, this copy was not placed inside
-            the avatar used by Myra.
-        </p>
-
-        <p>
-            The file was placed inside the body of a
-            <b>classic Roblox tree</b>.
-        </p>
-
-        <p>
-            After activation, L.O.V remained motionless for several minutes.
-            Upon awakening, the entity appeared confused.
-        </p>
-
-        <p>
-            The psychological procedure used on Myra was not repeated.
-            L.O.V <span class="red">DID NOT WAKE UP IN A BED.</span>
-        </p>
+    <p>
+        Se considera posible que ciertos recuerdos o emociones
+        pertenecientes al archivo original hayan permanecido
+        presentes durante el proceso de copia.
+    </p>
 
 
-        <h2>BEHAVIOR</h2>
+    <h2>PRÓXIMA FASE</h2>
 
-        <p>
-            During the first hours, L.O.V began exploring the environment.
-            Records indicate that the entity quickly identified inconsistencies
-            within the simulation.
-        </p>
+    <p>
+        Debido a los resultados obtenidos, la agencia ha autorizado
+        una nueva fase de investigación.
+    </p>
 
-        <p>
-            The entity began displaying hostility toward certain elements
-            associated with <b>MR.COOL</b>.
-        </p>
+    <p>
+        L.O.B será entrenada dentro de la simulación para aumentar
+        su reconocimiento y respuesta hacia entidades relacionadas
+        con MR.COOL.
+    </p>
 
-        <p>
-            The entity later began referring to itself as:
-        </p>
+    <p>
+        El objetivo final del proyecto será estudiar la posibilidad
+        de utilizar a L.O.B para <b>atormentar al MR.COOL original</b>
+        mediante una futura interacción controlada.
+    </p>
 
-        <div class="quote">
-            "L.O.V"
-        </div>
-
-
-        <h2>SEPARATE SIMULATION</h2>
-
-        <p>
-            Due to the instability displayed by L.O.V, the entity was moved
-            to a simulation separate from the one used by Myra.
-        </p>
-
-        <p>
-            The environment was designed after a
-            <b>classic Roblox forest</b>.
-        </p>
-
-        <p>
-            NPCs based on <b>MR.COOL</b> were periodically placed inside
-            the simulation to monitor L.O.V's reactions.
-        </p>
-
-        <p>
-            During one test, the entity attacked the NPC and subsequently
-            <b>destroyed it completely</b>.
-        </p>
-
-        <div class="danger">
-            <div class="danger-title">STRENGTH RECORD</div>
-
-            <p>
-                DETECTED LEVEL:
-                <span class="red">ABNORMALLY HIGH</span>
-            </p>
-        </div>
+    <p>
+        Se desconoce si L.O.B será capaz de reconocer al individuo
+        real cuando sea retirada de la simulación.
+    </p>
 
 
-        <h2>ESCAPE ATTEMPTS</h2>
+    <h2>NOTA DEL PERSONAL</h2>
 
-        <p>
-            Multiple attempts by L.O.V to leave the simulation have been recorded.
-        </p>
+    <div class="quote">
 
-        <p>
-            The entity has attempted to locate physical boundaries,
-            unloaded areas and maintenance access points.
-        </p>
+        "La copia parecía estable."
 
-        <div class="quote">
-            "THIS IS NOT REAL."
-        </div>
+        <br><br>
 
+        "Hasta que apareció él."
 
-        <h2>STAFF NOTE</h2>
+        <br><br>
 
-        <div class="quote">
-            "L.O.V should not be treated as an incomplete copy."
-            <br><br>
+        "No sabemos qué recuerda L.O.B."
 
-            "Records indicate that it retains sufficient memories,
-            behavioral patterns and cognitive abilities from the original file."
-            <br><br>
+        <br><br>
 
-            "What we do not know is what else may have changed during the copy."
-            <br><br>
+        "Pero definitivamente recuerda algo."
 
-            — <span class="classified">████████████</span>
-        </div>
+        <br><br>
 
-        <div class="footer">
-            FILE 0108.EXE — SUBJECT STATUS: ACTIVE<br><br>
-            UNAUTHORIZED ACCESS — █████████
-        </div>
+        — DEPARTAMENTO DE OBSERVACIÓN
 
     </div>
 
 
-    <!-- ================= PORTUGUÊS ================= -->
+    <div class="footer">
 
-    <div id="pt" class="document lang">
+        ARCHIVO 0108 — L.O.B<br><br>
 
-        <div class="document-title">
-            CASO: 0108.EXE
-        </div>
+        NO SECURITY AGENCY<br>
 
-        <div class="info">
-            <div>STATUS: <span class="red">ATIVO</span></div>
-            <div>IDENTIFICAÇÃO: <span>L.O.V</span></div>
-
-            <div>ORIGEM: <span>ARQUIVO MENTAL — LYRA (MYRA) <span class="classified">CÓPIA ████████</span></span></div>
-            <div>DATA: <span>27/09/2006</span></div>
-
-            <div>NÍVEL DE OBSERVAÇÃO: <span>V</span></div>
-            <div>LOCALIZAÇÃO: <span>SIMULAÇÃO R — SETOR FLORESTA</span></div>
-        </div>
-
-
-        <h2>DESCRIÇÃO</h2>
-
-        <p>
-            A entidade denominada <span class="red">L.O.V</span> corresponde
-            a uma cópia do arquivo mental pertencente a
-            <span class="classified">Lyra (Myra) ████████</span>.
-        </p>
-
-        <p>
-            O arquivo foi colocado dentro do corpo de uma
-            <b>árvore clássica do Roblox</b>.
-        </p>
-
-        <p>
-            Após a ativação, L.O.V permaneceu imóvel durante vários minutos.
-            Ao despertar, a entidade parecia confusa.
-        </p>
-
-        <p>
-            L.O.V <span class="red">NÃO ACORDOU EM UMA CAMA.</span>
-        </p>
-
-
-        <h2>COMPORTAMENTO</h2>
-
-        <p>
-            Durante as primeiras horas, L.O.V começou a explorar o ambiente.
-            Os registros indicam que a entidade identificou rapidamente
-            inconsistências dentro da simulação.
-        </p>
-
-        <p>
-            A entidade começou a demonstrar hostilidade em relação a
-            determinados elementos relacionados a <b>MR.COOL</b>.
-        </p>
-
-        <div class="quote">
-            "L.O.V"
-        </div>
-
-
-        <h2>SIMULAÇÃO SEPARADA</h2>
-
-        <p>
-            Devido à instabilidade apresentada por L.O.V, foi decidido
-            mantê-la em uma simulação diferente daquela utilizada por Myra.
-        </p>
-
-        <p>
-            O ambiente foi construído com base em uma
-            <b>floresta clássica do Roblox</b>.
-        </p>
-
-        <p>
-            NPCs baseados em <b>MR.COOL</b> foram colocados periodicamente
-            dentro da simulação para observar a reação de L.O.V.
-        </p>
-
-        <p>
-            Durante um dos testes, a entidade atacou o NPC e posteriormente
-            o <b>destruiu completamente</b>.
-        </p>
-
-        <div class="danger">
-            <div class="danger-title">REGISTRO DE FORÇA</div>
-
-            <p>
-                NÍVEL DETECTADO:
-                <span class="red">ANORMALMENTE ALTO</span>
-            </p>
-        </div>
-
-
-        <h2>TENTATIVAS DE FUGA</h2>
-
-        <p>
-            Foram registradas várias tentativas de L.O.V de abandonar
-            a simulação.
-        </p>
-
-        <p>
-            A entidade tentou encontrar limites físicos do mapa,
-            áreas não carregadas e pontos de acesso utilizados pelos
-            sistemas de manutenção.
-        </p>
-
-        <div class="quote">
-            "ISTO NÃO É REAL."
-        </div>
-
-
-        <h2>NOTA DA EQUIPE</h2>
-
-        <div class="quote">
-            "L.O.V não deve ser tratada como uma cópia incompleta."
-            <br><br>
-
-            "Os registros demonstram que ela conserva memórias,
-            padrões de comportamento e capacidades cognitivas suficientes
-            do arquivo original."
-            <br><br>
-
-            "O que não sabemos é o que mais pode ter mudado durante a cópia."
-            <br><br>
-
-            — <span class="classified">████████████</span>
-        </div>
-
-        <div class="footer">
-            ARQUIVO 0108.EXE — STATUS DO SUJEITO: ATIVO<br><br>
-            ACESSO NÃO AUTORIZADO — █████████
-        </div>
+        INTERNAL USE ONLY
 
     </div>
+
+</div>
+
+
+
+<!-- ================= ENGLISH ================= -->
+
+<div id="en" class="document lang">
+
+    <div class="title">
+        CASE: 0108
+    </div>
+
+    <div class="info">
+
+        <div>STATUS: <span class="red">ACTIVE</span></div>
+
+        <div>IDENTIFICATION: <span>L.O.B</span></div>
+
+        <div>ORIGINAL FILE: <span>LYRA</span></div>
+
+        <div>FILE AGE: <span>21 YEARS</span></div>
+
+        <div>TYPE: <span>MENTAL COPY</span></div>
+
+        <div>OBSERVATION LEVEL: <span>V</span></div>
+
+        <div>BODY: <span>CLASSIC ROBLOX TREE</span></div>
+
+        <div>LOCATION: <span>SIMULATION R</span></div>
+
+    </div>
+
+
+    <h2>EXPERIMENT DESCRIPTION</h2>
+
+    <p>
+        Case 0108 corresponds to a copy of the mental file belonging
+        to <b>Lyra</b>.
+    </p>
+
+    <p>
+        The copy retains the same age recorded in the original file:
+        <b>21 years old.</b>
+    </p>
+
+    <p>
+        The initial objective was to investigate how a mental copy
+        of Lyra behaves when placed inside a body different from
+        the one used by the original subject.
+    </p>
+
+    <p>
+        The entity was given the experimental designation:
+    </p>
+
+    <div class="quote">
+        L.O.B
+    </div>
+
+
+    <h2>ASSIGNED BODY</h2>
+
+    <p>
+        A body based on a <b>classic Roblox tree</b> was used.
+    </p>
+
+    <p>
+        The model was modified with two legs shaped like roots,
+        allowing the entity to move throughout the simulation.
+    </p>
+
+
+    <h2>FIRST OBSERVATION</h2>
+
+    <p>
+        After awakening, L.O.B began exploring the environment
+        independently.
+    </p>
+
+    <p>
+        No aggressive behavior was recorded during the first hours.
+    </p>
+
+
+    <h2>NPC TEST — MR.COOL</h2>
+
+    <p>
+        Several NPCs were introduced into the simulation.
+    </p>
+
+    <p>
+        L.O.B remained stable until the appearance of the NPC
+        based on <b>MR.COOL</b>.
+    </p>
+
+    <p>
+        The entity immediately stopped moving and observed the NPC.
+    </p>
+
+    <p>
+        L.O.B then began <b>stalking</b> the NPC.
+    </p>
+
+    <p>
+        After several seconds, the entity suddenly rushed toward
+        the NPC.
+    </p>
+
+    <div class="warning">
+
+        <div class="warning-title">
+            INCIDENT RECORDED
+        </div>
+
+        <p>
+            L.O.B attacked the MR.COOL NPC and destroyed it
+            inside the simulation.
+        </p>
+
+    </div>
+
+
+    <h2>ANALYSIS</h2>
+
+    <p>
+        The behavior suggests that the mental copy retains some
+        form of association with MR.COOL.
+    </p>
+
+    <p>
+        The exact nature of this association remains under
+        investigation.
+    </p>
+
+    <p>
+        The aggressive response was only observed after the
+        MR.COOL NPC was detected.
+    </p>
+
+
+    <h2>NEXT PHASE</h2>
+
+    <p>
+        Due to the results obtained, a new research phase has
+        been authorized.
+    </p>
+
+    <p>
+        L.O.B will be trained inside the simulation to increase
+        its recognition and response toward entities associated
+        with MR.COOL.
+    </p>
+
+    <p>
+        The final objective is to determine whether L.O.B can be
+        used to <b>torment the original MR.COOL</b> through a
+        future controlled interaction.
+    </p>
+
+
+    <h2>STAFF NOTE</h2>
+
+    <div class="quote">
+
+        "The copy appeared stable."
+
+        <br><br>
+
+        "Until he appeared."
+
+        <br><br>
+
+        "We don't know what L.O.B remembers."
+
+        <br><br>
+
+        "But she definitely remembers something."
+
+        <br><br>
+
+        — OBSERVATION DEPARTMENT
+
+    </div>
+
+
+    <div class="footer">
+
+        FILE 0108 — L.O.B<br><br>
+
+        NO SECURITY AGENCY<br>
+
+        INTERNAL USE ONLY
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= PORTUGUÊS ================= -->
+
+<div id="pt" class="document lang">
+
+    <div class="title">
+        CASO: 0108
+    </div>
+
+    <div class="info">
+
+        <div>STATUS: <span class="red">ATIVO</span></div>
+
+        <div>IDENTIFICAÇÃO: <span>L.O.B</span></div>
+
+        <div>ARQUIVO ORIGINAL: <span>LYRA</span></div>
+
+        <div>IDADE DO ARQUIVO: <span>21 ANOS</span></div>
+
+        <div>TIPO: <span>CÓPIA MENTAL</span></div>
+
+        <div>NÍVEL DE OBSERVAÇÃO: <span>V</span></div>
+
+        <div>CORPO: <span>ÁRVORE CLÁSSICA DO ROBLOX</span></div>
+
+        <div>LOCALIZAÇÃO: <span>SIMULAÇÃO R</span></div>
+
+    </div>
+
+
+    <h2>DESCRIÇÃO DO EXPERIMENTO</h2>
+
+    <p>
+        O caso 0108 corresponde a uma cópia do arquivo mental
+        pertencente a <b>Lyra</b>.
+    </p>
+
+    <p>
+        A cópia mantém a mesma idade registrada no arquivo original:
+        <b>21 anos.</b>
+    </p>
+
+    <p>
+        O objetivo inicial era investigar como uma cópia mental de
+        Lyra se comporta quando colocada em um corpo diferente.
+    </p>
+
+    <p>
+        A entidade recebeu o nome experimental:
+    </p>
+
+    <div class="quote">
+        L.O.B
+    </div>
+
+
+    <h2>CORPO ATRIBUÍDO</h2>
+
+    <p>
+        Foi utilizado um corpo baseado em uma
+        <b>árvore clássica do Roblox</b>.
+    </p>
+
+    <p>
+        O modelo recebeu duas pernas semelhantes a raízes,
+        permitindo que a entidade pudesse se mover pela simulação.
+    </p>
+
+
+    <h2>PRIMEIRA OBSERVAÇÃO</h2>
+
+    <p>
+        Depois de acordar, L.O.B começou a explorar o ambiente
+        de forma independente.
+    </p>
+
+    <p>
+        Nenhum comportamento agressivo foi registrado durante
+        as primeiras horas.
+    </p>
+
+
+    <h2>TESTE COM NPC — MR.COOL</h2>
+
+    <p>
+        Vários NPCs foram introduzidos na simulação.
+    </p>
+
+    <p>
+        L.O.B permaneceu estável até a aparição do NPC baseado
+        em <b>MR.COOL</b>.
+    </p>
+
+    <p>
+        A entidade começou imediatamente a observar o NPC.
+    </p>
+
+    <p>
+        L.O.B então começou a <b>persegui-lo silenciosamente</b>.
+    </p>
+
+    <p>
+        Após alguns segundos, a entidade correu em direção ao NPC.
+    </p>
+
+    <div class="warning">
+
+        <div class="warning-title">
+            INCIDENTE REGISTRADO
+        </div>
+
+        <p>
+            L.O.B atacou o NPC de MR.COOL e o destruiu dentro
+            da simulação.
+        </p>
+
+    </div>
+
+
+    <h2>ANÁLISE</h2>
+
+    <p>
+        O comportamento sugere que a cópia mental mantém algum tipo
+        de associação com MR.COOL.
+    </p>
+
+    <p>
+        A natureza exata dessa associação continua sob investigação.
+    </p>
+
+
+    <h2>PRÓXIMA FASE</h2>
+
+    <p>
+        Devido aos resultados obtidos, uma nova fase de pesquisa
+        foi autorizada.
+    </p>
+
+    <p>
+        L.O.B será treinada dentro da simulação para aumentar sua
+        resposta a entidades relacionadas a MR.COOL.
+    </p>
+
+    <p>
+        O objetivo final será determinar se L.O.B pode ser utilizada
+        para <b>atormentar o MR.COOL original</b> através de uma
+        futura interação controlada.
+    </p>
+
+
+    <h2>NOTA DA EQUIPE</h2>
+
+    <div class="quote">
+
+        "A cópia parecia estável."
+
+        <br><br>
+
+        "Até ele aparecer."
+
+        <br><br>
+
+        "Não sabemos o que L.O.B lembra."
+
+        <br><br>
+
+        "Mas ela definitivamente lembra de alguma coisa."
+
+        <br><br>
+
+        — DEPARTAMENTO DE OBSERVAÇÃO
+
+    </div>
+
+
+    <div class="footer">
+
+        ARQUIVO 0108 — L.O.B<br><br>
+
+        NO SECURITY AGENCY<br>
+
+        INTERNAL USE ONLY
+
+    </div>
+
+</div>
 
 </div>
 
@@ -738,6 +899,7 @@ function setLanguage(language) {
     });
 
     document.getElementById(language).classList.add("active");
+
 }
 
 </script>
