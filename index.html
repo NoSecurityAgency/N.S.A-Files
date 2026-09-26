@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CASO 0108 — NO SECURITY AGENCY</title>
+<title>NO SECURITY AGENCY — Official Archive</title>
 
 <style>
 
@@ -15,17 +16,20 @@
 body {
     margin: 0;
     background:
-        radial-gradient(circle at center, #111 0%, #050505 45%, #000 100%);
-    color: #aaa;
+        radial-gradient(circle at center, #161616 0%, #050505 50%, #000 100%);
+    color: #999;
     font-family: "Courier New", monospace;
     min-height: 100vh;
 }
+
+/* EFECTO DE PANTALLA ANTIGUA */
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
+
     background:
         repeating-linear-gradient(
             0deg,
@@ -34,471 +38,603 @@ body::before {
             transparent 1px,
             transparent 4px
         );
+
+    z-index: 100;
 }
+
+/* BARRA SUPERIOR */
+
+.topbar {
+    border-bottom: 1px solid #333;
+    padding: 15px 25px;
+
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    color: #666;
+
+    background: #020202;
+}
+
+/* CONTENEDOR */
 
 .container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1100px;
+
     margin: auto;
+
     padding: 45px 0 80px;
 }
 
-.top {
-    border-bottom: 1px solid #333;
-    padding: 18px 25px;
-    color: #666;
-    letter-spacing: 3px;
-    font-size: 12px;
-}
+/* CABECERA */
 
 .header {
     border: 1px solid #333;
-    padding: 25px;
-    background: rgba(0,0,0,.6);
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.025),
+            rgba(0,0,0,0.8)
+        );
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.8);
 }
 
-.agency {
-    font-size: 30px;
+.logo {
+    font-size: 38px;
+
     color: #ddd;
-    letter-spacing: 5px;
+
+    letter-spacing: 7px;
+
     font-weight: bold;
 }
 
-.sub {
-    margin-top: 8px;
+.established {
+    margin-top: 10px;
+
     color: #555;
-    letter-spacing: 2px;
-}
 
-.document {
-    margin-top: 25px;
-    border: 1px solid #292929;
-    background: rgba(0,0,0,.7);
-    padding: 25px;
-}
+    letter-spacing: 3px;
 
-.title {
-    font-size: 25px;
-    color: #ccc;
-    letter-spacing: 4px;
-    margin-bottom: 25px;
-}
-
-.info {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-
-    border-top: 1px solid #292929;
-    border-bottom: 1px solid #292929;
-
-    padding: 18px 0;
-    margin-bottom: 30px;
-}
-
-.info div {
-    color: #666;
     font-size: 13px;
 }
 
-.info span {
+.header-line {
+    margin-top: 25px;
+
+    width: 100%;
+
+    height: 1px;
+
+    background: #292929;
+}
+
+/* TEXTO */
+
+.section {
+    margin-top: 30px;
+
+    border: 1px solid #292929;
+
+    padding: 28px;
+
+    background: rgba(0,0,0,0.65);
+}
+
+.section-title {
     color: #aaa;
-}
 
-.red {
-    color: #650000 !important;
-    font-weight: bold;
-}
+    font-size: 17px;
 
-h2 {
-    color: #888;
-    font-size: 15px;
-    letter-spacing: 3px;
-    border-bottom: 1px solid #252525;
-    padding-bottom: 8px;
-    margin-top: 35px;
+    letter-spacing: 4px;
+
+    border-bottom: 1px solid #292929;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 20px;
 }
 
 p {
     color: #888;
+
     font-size: 14px;
+
     line-height: 1.9;
 }
 
-.quote {
+/* FRASES DESTACADAS */
+
+.highlight {
     border-left: 2px solid #555;
-    padding: 14px 20px;
+
+    padding: 15px 20px;
+
     margin: 20px 0;
+
+    background: rgba(255,255,255,0.015);
+
     color: #777;
-    font-style: italic;
 }
 
-.warning {
-    border: 1px solid #3b0000;
-    background: rgba(45,0,0,.12);
-    padding: 18px;
-    margin-top: 25px;
+.red {
+    color: #650000;
 }
 
-.warning-title {
-    color: #700000;
-    letter-spacing: 3px;
+/* SERVICIOS */
+
+.services {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.service {
+    border: 1px solid #292929;
+
+    padding: 20px;
+
+    background: #030303;
+
+    transition: .2s;
+}
+
+.service:hover {
+    border-color: #555;
+
+    background: #080808;
+}
+
+.service-title {
+    color: #aaa;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
     margin-bottom: 10px;
 }
 
-.footer {
-    text-align: center;
-    margin-top: 50px;
-    color: #333;
-    font-size: 11px;
-    letter-spacing: 2px;
+.service p {
+    font-size: 13px;
 }
+
+/* IMAGENES */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-top: 20px;
+}
+
+.image-card {
+    border: 1px solid #292929;
+
+    background: #030303;
+
+    overflow: hidden;
+}
+
+.image-card img {
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    display: block;
+
+    filter:
+        grayscale(35%)
+        contrast(90%)
+        brightness(70%);
+}
+
+.image-card:hover img {
+    filter:
+        grayscale(10%)
+        contrast(100%)
+        brightness(85%);
+}
+
+.image-caption {
+    padding: 13px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+/* HISTORIA */
+
+.timeline {
+    border-left: 1px solid #333;
+
+    padding-left: 25px;
+
+    margin-top: 20px;
+}
+
+.event {
+    margin-bottom: 28px;
+
+    position: relative;
+}
+
+.event::before {
+    content: "";
+
+    position: absolute;
+
+    left: -31px;
+
+    top: 5px;
+
+    width: 10px;
+
+    height: 10px;
+
+    border: 1px solid #666;
+
+    background: #050505;
+}
+
+.year {
+    color: #aaa;
+
+    letter-spacing: 3px;
+
+    font-size: 13px;
+}
+
+/* AYUDA */
+
+.help {
+    border: 1px solid #333;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.02),
+            transparent
+        );
+
+    padding: 25px;
+
+    margin-top: 20px;
+}
+
+.help-title {
+    color: #bbb;
+
+    font-size: 15px;
+
+    letter-spacing: 3px;
+}
+
+/* PIE */
+
+.footer {
+    margin-top: 50px;
+
+    text-align: center;
+
+    color: #333;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    line-height: 2;
+}
+
+/* TEXTO OCULTO DEL ARG */
 
 .secret {
     color: #000;
+
     background: #000;
+
+    user-select: text;
 }
 
 .secret::selection {
-    color: #fff;
-    background: #555;
+    color: white;
+
+    background: #444;
 }
 
-.language {
+/* CODIGO OCULTO */
+
+.hidden-code {
     position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 10;
-}
 
-.language button {
-    background: #050505;
-    border: 1px solid #333;
-    color: #777;
-    padding: 6px 9px;
-    cursor: pointer;
+    bottom: 4px;
+    right: 5px;
+
     font-family: "Courier New", monospace;
+
+    font-size: 7px;
+
+    color: #010101;
+
+    background: transparent;
+
+    opacity: 0.08;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    z-index: 5;
 }
 
-.language button:hover {
-    color: #fff;
-    border-color: #777;
-}
+/* RESPONSIVE */
 
-.lang {
-    display: none;
-}
-
-.lang.active {
-    display: block;
-}
-
-@media(max-width:650px) {
+@media(max-width:700px) {
 
     .container {
         width: 94%;
     }
 
-    .agency {
-        font-size: 21px;
+    .logo {
+        font-size: 24px;
+
+        letter-spacing: 4px;
     }
 
-    .info {
+    .services {
         grid-template-columns: 1fr;
     }
 
-    .document {
-        padding: 18px;
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 20px;
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<div class="language">
-    <button onclick="setLanguage('es')">ES</button>
-    <button onclick="setLanguage('en')">EN</button>
-    <button onclick="setLanguage('pt')">PT</button>
+
+<div class="topbar">
+
+    NO SECURITY AGENCY — OFFICIAL INFORMATION ARCHIVE
+
 </div>
 
-<div class="top">
-    NO SECURITY AGENCY — INTERNAL ARCHIVE
-</div>
 
 <div class="container">
 
+
+<!-- CABECERA -->
+
 <div class="header">
 
-    <div class="agency">
+    <div class="logo">
+
         NO SECURITY AGENCY
+
     </div>
 
-    <div class="sub">
-        ESTABLISHED 1899 — RESEARCH / SIMULATION / CONTAINMENT
+    <div class="established">
+
+        ESTABLISHED — 1899
+
     </div>
+
+    <div class="header-line"></div>
+
+    <p>
+
+        Una organización dedicada a la protección,
+        investigación y asistencia de individuos
+        afectados por situaciones que no pueden
+        ser atendidas mediante métodos convencionales.
+
+    </p>
 
 </div>
 
 
-<!-- ================= ESPAÑOL ================= -->
 
-<div id="es" class="document lang active">
+<!-- QUIENES SOMOS -->
 
-    <div class="title">
-        CASO: 0108
-    </div>
+<div class="section">
 
-    <div class="info">
+    <div class="section-title">
 
-        <div>
-            ESTADO:
-            <span class="red">ACTIVO</span>
-        </div>
-
-        <div>
-            IDENTIFICACIÓN:
-            <span>L.O.B</span>
-        </div>
-
-        <div>
-            ARCHIVO DE ORIGEN:
-            <span>LYRA</span>
-        </div>
-
-        <div>
-            EDAD DEL ARCHIVO:
-            <span>21 AÑOS</span>
-        </div>
-
-        <div>
-            TIPO:
-            <span>COPIA MENTAL</span>
-        </div>
-
-        <div>
-            NIVEL DE OBSERVACIÓN:
-            <span>V</span>
-        </div>
-
-        <div>
-            CUERPO:
-            <span>ÁRBOL CLÁSICO DE ROBLOX</span>
-        </div>
-
-        <div>
-            UBICACIÓN:
-            <span>SIMULACIÓN R</span>
-        </div>
+        ¿QUIÉNES SOMOS?
 
     </div>
 
-
-    <h2>DESCRIPCIÓN DEL EXPERIMENTO</h2>
-
     <p>
-        El caso 0108 corresponde a una copia del archivo mental
-        perteneciente a <b>Lyra</b>.
+
+        La <b>NO SECURITY AGENCY</b> fue fundada en 1899
+        con un objetivo sencillo:
+
+        <b>ayudar a las personas.</b>
+
     </p>
 
     <p>
-        La copia conserva los mismos datos de edad registrados en
-        el archivo original:
-        <b>21 años.</b>
+
+        Durante más de un siglo hemos desarrollado
+        sistemas destinados a proteger a individuos,
+        estudiar fenómenos desconocidos y proporcionar
+        asistencia a quienes han perdido la posibilidad
+        de llevar una vida normal.
+
     </p>
 
-    <p>
-        El objetivo inicial del experimento consiste en investigar
-        cómo se comporta una copia mental de Lyra cuando es colocada
-        dentro de un cuerpo diferente al utilizado por el sujeto
-        original.
-    </p>
+    <div class="highlight">
 
-    <p>
-        La entidad recibió el nombre experimental:
-    </p>
+        "Una persona no debería ser abandonada
+        solamente porque su situación sea diferente."
 
-    <div class="quote">
-        L.O.B
     </div>
 
-
-    <h2>CUERPO ASIGNADO</h2>
-
     <p>
-        Para el experimento se utilizó un cuerpo basado en un
-        <b>árbol clásico de Roblox</b>.
+
+        Nuestra organización trabaja con especialistas
+        en tecnología, comportamiento humano,
+        sistemas artificiales y entornos virtuales.
+
     </p>
 
-    <p>
-        El modelo fue modificado para incorporar dos piernas
-        formadas como raíces, permitiendo que la entidad pueda
-        desplazarse por la simulación.
-    </p>
-
-    <p>
-        La apariencia inicial de L.O.B no produjo reacciones
-        negativas dentro de la simulación.
-    </p>
+</div>
 
 
-    <h2>PRIMERA OBSERVACIÓN</h2>
 
-    <p>
-        Después de despertar, L.O.B comenzó a explorar el entorno
-        de manera independiente.
-    </p>
+<!-- FUNCIONES -->
 
-    <p>
-        Durante las primeras horas no se registraron comportamientos
-        agresivos.
-    </p>
+<div class="section">
 
-    <p>
-        La entidad caminó por diferentes sectores del mapa,
-        observó los elementos del entorno y se acercó a varios
-        NPCs sin presentar conductas hostiles.
-    </p>
+    <div class="section-title">
 
-    <div class="quote">
-        REGISTRO: COMPORTAMIENTO NORMAL
-    </div>
-
-
-    <h2>PRUEBA CON NPC — MR.COOL</h2>
-
-    <p>
-        Para la siguiente prueba se introdujeron varios NPCs
-        dentro de la simulación.
-    </p>
-
-    <p>
-        La reacción de L.O.B permaneció estable hasta la aparición
-        del NPC basado en <b>MR.COOL</b>.
-    </p>
-
-    <p>
-        Inmediatamente después de detectar al NPC, la entidad
-        permaneció inmóvil durante varios segundos.
-    </p>
-
-    <p>
-        Posteriormente comenzó a <b>acecharlo</b>.
-    </p>
-
-    <p>
-        L.O.B siguió al NPC a cierta distancia, evitando acercarse
-        directamente.
-    </p>
-
-    <p>
-        Después de varios segundos, la entidad comenzó a desplazarse
-        rápidamente hacia el NPC.
-    </p>
-
-    <div class="warning">
-
-        <div class="warning-title">
-            INCIDENTE REGISTRADO
-        </div>
-
-        <p>
-            L.O.B atacó al NPC de MR.COOL y provocó su destrucción
-            dentro de la simulación.
-        </p>
-
-        <p>
-            No se había registrado ninguna conducta similar
-            anteriormente.
-        </p>
+        FUNCIONES DE LA AGENCIA
 
     </div>
 
 
-    <h2>ANÁLISIS</h2>
-
-    <p>
-        El comportamiento observado sugiere que la copia mental
-        conserva algún tipo de asociación con MR.COOL.
-    </p>
-
-    <p>
-        La naturaleza exacta de dicha asociación todavía se
-        encuentra bajo investigación.
-    </p>
-
-    <p>
-        La respuesta de L.O.B no fue provocada por los demás NPCs.
-        El comportamiento agresivo apareció únicamente después
-        de identificar al NPC de MR.COOL.
-    </p>
-
-    <p>
-        Se considera posible que ciertos recuerdos o emociones
-        pertenecientes al archivo original hayan permanecido
-        presentes durante el proceso de copia.
-    </p>
+    <div class="services">
 
 
-    <h2>PRÓXIMA FASE</h2>
+        <div class="service">
 
-    <p>
-        Debido a los resultados obtenidos, la agencia ha autorizado
-        una nueva fase de investigación.
-    </p>
+            <div class="service-title">
 
-    <p>
-        L.O.B será entrenada dentro de la simulación para aumentar
-        su reconocimiento y respuesta hacia entidades relacionadas
-        con MR.COOL.
-    </p>
+                ASISTENCIA
 
-    <p>
-        El objetivo final del proyecto será estudiar la posibilidad
-        de utilizar a L.O.B para <b>atormentar al MR.COOL original</b>
-        mediante una futura interacción controlada.
-    </p>
+            </div>
 
-    <p>
-        Se desconoce si L.O.B será capaz de reconocer al individuo
-        real cuando sea retirada de la simulación.
-    </p>
+            <p>
+
+                Ayudamos a individuos que han sufrido
+                situaciones que afectan su vida cotidiana.
+
+            </p>
+
+        </div>
 
 
-    <h2>NOTA DEL PERSONAL</h2>
+        <div class="service">
 
-    <div class="quote">
+            <div class="service-title">
 
-        "La copia parecía estable."
+                INVESTIGACIÓN
 
-        <br><br>
+            </div>
 
-        "Hasta que apareció él."
+            <p>
 
-        <br><br>
+                Estudiamos fenómenos que no pueden ser
+                explicados mediante métodos convencionales.
 
-        "No sabemos qué recuerda L.O.B."
+            </p>
 
-        <br><br>
-
-        "Pero definitivamente recuerda algo."
-
-        <br><br>
-
-        — DEPARTAMENTO DE OBSERVACIÓN
-
-    </div>
+        </div>
 
 
-    <div class="footer">
+        <div class="service">
 
-        ARCHIVO 0108 — L.O.B<br><br>
+            <div class="service-title">
 
-        NO SECURITY AGENCY<br>
+                RECUPERACIÓN
 
-        INTERNAL USE ONLY
+            </div>
+
+            <p>
+
+                Desarrollamos métodos para recuperar
+                información, recuerdos y capacidades
+                perdidas.
+
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-title">
+
+                SIMULACIONES
+
+            </div>
+
+            <p>
+
+                Creamos entornos artificiales destinados
+                a estudiar el comportamiento humano
+                y ayudar a pacientes.
+
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-title">
+
+                PROTECCIÓN
+
+            </div>
+
+            <p>
+
+                Protegemos a personas que puedan estar
+                expuestas a fenómenos o situaciones
+                desconocidas.
+
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-title">
+
+                REINTEGRACIÓN
+
+            </div>
+
+            <p>
+
+                Nuestro objetivo final es permitir que
+                nuestros pacientes puedan volver a
+                desarrollar una vida normal.
+
+            </p>
+
+        </div>
+
 
     </div>
 
@@ -506,194 +642,117 @@ p {
 
 
 
-<!-- ================= ENGLISH ================= -->
+<!-- HISTORIA -->
 
-<div id="en" class="document lang">
+<div class="section">
 
-    <div class="title">
-        CASE: 0108
-    </div>
+    <div class="section-title">
 
-    <div class="info">
-
-        <div>STATUS: <span class="red">ACTIVE</span></div>
-
-        <div>IDENTIFICATION: <span>L.O.B</span></div>
-
-        <div>ORIGINAL FILE: <span>LYRA</span></div>
-
-        <div>FILE AGE: <span>21 YEARS</span></div>
-
-        <div>TYPE: <span>MENTAL COPY</span></div>
-
-        <div>OBSERVATION LEVEL: <span>V</span></div>
-
-        <div>BODY: <span>CLASSIC ROBLOX TREE</span></div>
-
-        <div>LOCATION: <span>SIMULATION R</span></div>
+        HISTORIA
 
     </div>
 
 
-    <h2>EXPERIMENT DESCRIPTION</h2>
-
-    <p>
-        Case 0108 corresponds to a copy of the mental file belonging
-        to <b>Lyra</b>.
-    </p>
-
-    <p>
-        The copy retains the same age recorded in the original file:
-        <b>21 years old.</b>
-    </p>
-
-    <p>
-        The initial objective was to investigate how a mental copy
-        of Lyra behaves when placed inside a body different from
-        the one used by the original subject.
-    </p>
-
-    <p>
-        The entity was given the experimental designation:
-    </p>
-
-    <div class="quote">
-        L.O.B
-    </div>
+    <div class="timeline">
 
 
-    <h2>ASSIGNED BODY</h2>
+        <div class="event">
 
-    <p>
-        A body based on a <b>classic Roblox tree</b> was used.
-    </p>
+            <div class="year">
+                1899
+            </div>
 
-    <p>
-        The model was modified with two legs shaped like roots,
-        allowing the entity to move throughout the simulation.
-    </p>
+            <p>
 
+                Se establece oficialmente la
+                NO SECURITY AGENCY.
 
-    <h2>FIRST OBSERVATION</h2>
+            </p>
 
-    <p>
-        After awakening, L.O.B began exploring the environment
-        independently.
-    </p>
-
-    <p>
-        No aggressive behavior was recorded during the first hours.
-    </p>
-
-
-    <h2>NPC TEST — MR.COOL</h2>
-
-    <p>
-        Several NPCs were introduced into the simulation.
-    </p>
-
-    <p>
-        L.O.B remained stable until the appearance of the NPC
-        based on <b>MR.COOL</b>.
-    </p>
-
-    <p>
-        The entity immediately stopped moving and observed the NPC.
-    </p>
-
-    <p>
-        L.O.B then began <b>stalking</b> the NPC.
-    </p>
-
-    <p>
-        After several seconds, the entity suddenly rushed toward
-        the NPC.
-    </p>
-
-    <div class="warning">
-
-        <div class="warning-title">
-            INCIDENT RECORDED
         </div>
 
-        <p>
-            L.O.B attacked the MR.COOL NPC and destroyed it
-            inside the simulation.
-        </p>
 
-    </div>
+        <div class="event">
 
+            <div class="year">
+                1924
+            </div>
 
-    <h2>ANALYSIS</h2>
+            <p>
 
-    <p>
-        The behavior suggests that the mental copy retains some
-        form of association with MR.COOL.
-    </p>
+                Se inaugura el primer centro dedicado
+                a la investigación de comportamiento
+                humano.
 
-    <p>
-        The exact nature of this association remains under
-        investigation.
-    </p>
+            </p>
 
-    <p>
-        The aggressive response was only observed after the
-        MR.COOL NPC was detected.
-    </p>
+        </div>
 
 
-    <h2>NEXT PHASE</h2>
+        <div class="event">
 
-    <p>
-        Due to the results obtained, a new research phase has
-        been authorized.
-    </p>
+            <div class="year">
+                1968
+            </div>
 
-    <p>
-        L.O.B will be trained inside the simulation to increase
-        its recognition and response toward entities associated
-        with MR.COOL.
-    </p>
+            <p>
 
-    <p>
-        The final objective is to determine whether L.O.B can be
-        used to <b>torment the original MR.COOL</b> through a
-        future controlled interaction.
-    </p>
+                La agencia comienza a desarrollar
+                sistemas de simulación artificial.
+
+            </p>
+
+        </div>
 
 
-    <h2>STAFF NOTE</h2>
+        <div class="event">
 
-    <div class="quote">
+            <div class="year">
+                1989
+            </div>
 
-        "The copy appeared stable."
+            <p>
 
-        <br><br>
+                Se crea el primer sistema capaz de
+                reproducir entornos virtuales completos.
 
-        "Until he appeared."
+            </p>
 
-        <br><br>
-
-        "We don't know what L.O.B remembers."
-
-        <br><br>
-
-        "But she definitely remembers something."
-
-        <br><br>
-
-        — OBSERVATION DEPARTMENT
-
-    </div>
+        </div>
 
 
-    <div class="footer">
+        <div class="event">
 
-        FILE 0108 — L.O.B<br><br>
+            <div class="year">
+                2006
+            </div>
 
-        NO SECURITY AGENCY<br>
+            <p>
 
-        INTERNAL USE ONLY
+                Se inicia el proyecto denominado
+                <b>"R"</b>.
+
+            </p>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="year">
+                2006 — ACTUALIDAD
+            </div>
+
+            <p>
+
+                Los proyectos relacionados con
+                <b>R</b> continúan bajo supervisión
+                especial.
+
+            </p>
+
+        </div>
+
 
     </div>
 
@@ -701,208 +760,196 @@ p {
 
 
 
-<!-- ================= PORTUGUÊS ================= -->
+<!-- ARCHIVO VISUAL -->
 
-<div id="pt" class="document lang">
+<div class="section">
 
-    <div class="title">
-        CASO: 0108
-    </div>
+    <div class="section-title">
 
-    <div class="info">
-
-        <div>STATUS: <span class="red">ATIVO</span></div>
-
-        <div>IDENTIFICAÇÃO: <span>L.O.B</span></div>
-
-        <div>ARQUIVO ORIGINAL: <span>LYRA</span></div>
-
-        <div>IDADE DO ARQUIVO: <span>21 ANOS</span></div>
-
-        <div>TIPO: <span>CÓPIA MENTAL</span></div>
-
-        <div>NÍVEL DE OBSERVAÇÃO: <span>V</span></div>
-
-        <div>CORPO: <span>ÁRVORE CLÁSSICA DO ROBLOX</span></div>
-
-        <div>LOCALIZAÇÃO: <span>SIMULAÇÃO R</span></div>
+        ARCHIVO VISUAL — ENTORNOS UTILIZADOS
 
     </div>
 
-
-    <h2>DESCRIÇÃO DO EXPERIMENTO</h2>
-
     <p>
-        O caso 0108 corresponde a uma cópia do arquivo mental
-        pertencente a <b>Lyra</b>.
+
+        Algunos entornos utilizados durante las primeras
+        investigaciones fueron construidos tomando como
+        referencia espacios virtuales simples y familiares.
+
     </p>
 
-    <p>
-        A cópia mantém a mesma idade registrada no arquivo original:
-        <b>21 anos.</b>
-    </p>
 
-    <p>
-        O objetivo inicial era investigar como uma cópia mental de
-        Lyra se comporta quando colocada em um corpo diferente.
-    </p>
+    <div class="gallery">
 
-    <p>
-        A entidade recebeu o nome experimental:
-    </p>
 
-    <div class="quote">
-        L.O.B
+        <div class="image-card">
+
+            <img
+            src="https://tr.rbxcdn.com/180DAY-eb203450356b5ad6112bbafc10bb3848/768/432/Image/Webp/noFilter"
+            alt="Happy Home in Robloxia">
+
+            <div class="image-caption">
+
+                ARCHIVO R-01 — HAPPY HOME
+
+            </div>
+
+        </div>
+
+
+        <div class="image-card">
+
+            <img
+            src="https://www.webdesignmuseum.org/images/uploads/roblox-2006.png"
+            alt="Roblox 2006">
+
+            <div class="image-caption">
+
+                ARCHIVO R-02 — EARLY R ENVIRONMENT
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- AYUDA -->
+
+<div class="section">
+
+    <div class="section-title">
+
+        NUESTRO COMPROMISO
+
     </div>
 
 
-    <h2>CORPO ATRIBUÍDO</h2>
+    <div class="help">
 
-    <p>
-        Foi utilizado um corpo baseado em uma
-        <b>árvore clássica do Roblox</b>.
-    </p>
+        <div class="help-title">
 
-    <p>
-        O modelo recebeu duas pernas semelhantes a raízes,
-        permitindo que a entidade pudesse se mover pela simulação.
-    </p>
+            "AYUDAR ES ENCONTRAR UNA SOLUCIÓN."
 
-
-    <h2>PRIMEIRA OBSERVAÇÃO</h2>
-
-    <p>
-        Depois de acordar, L.O.B começou a explorar o ambiente
-        de forma independente.
-    </p>
-
-    <p>
-        Nenhum comportamento agressivo foi registrado durante
-        as primeiras horas.
-    </p>
-
-
-    <h2>TESTE COM NPC — MR.COOL</h2>
-
-    <p>
-        Vários NPCs foram introduzidos na simulação.
-    </p>
-
-    <p>
-        L.O.B permaneceu estável até a aparição do NPC baseado
-        em <b>MR.COOL</b>.
-    </p>
-
-    <p>
-        A entidade começou imediatamente a observar o NPC.
-    </p>
-
-    <p>
-        L.O.B então começou a <b>persegui-lo silenciosamente</b>.
-    </p>
-
-    <p>
-        Após alguns segundos, a entidade correu em direção ao NPC.
-    </p>
-
-    <div class="warning">
-
-        <div class="warning-title">
-            INCIDENTE REGISTRADO
         </div>
 
         <p>
-            L.O.B atacou o NPC de MR.COOL e o destruiu dentro
-            da simulação.
+
+            Cuando una persona llega a nuestras instalaciones,
+            nuestro primer objetivo es comprender su situación.
+
+        </p>
+
+        <p>
+
+            No importa cuánto tiempo haya pasado.
+
+            No importa qué tan complicada sea la situación.
+
+        </p>
+
+        <p>
+
+            La NO SECURITY AGENCY siempre buscará
+            una solución.
+
         </p>
 
     </div>
 
-
-    <h2>ANÁLISE</h2>
-
-    <p>
-        O comportamento sugere que a cópia mental mantém algum tipo
-        de associação com MR.COOL.
-    </p>
-
-    <p>
-        A natureza exata dessa associação continua sob investigação.
-    </p>
-
-
-    <h2>PRÓXIMA FASE</h2>
-
-    <p>
-        Devido aos resultados obtidos, uma nova fase de pesquisa
-        foi autorizada.
-    </p>
-
-    <p>
-        L.O.B será treinada dentro da simulação para aumentar sua
-        resposta a entidades relacionadas a MR.COOL.
-    </p>
-
-    <p>
-        O objetivo final será determinar se L.O.B pode ser utilizada
-        para <b>atormentar o MR.COOL original</b> através de uma
-        futura interação controlada.
-    </p>
-
-
-    <h2>NOTA DA EQUIPE</h2>
-
-    <div class="quote">
-
-        "A cópia parecia estável."
-
-        <br><br>
-
-        "Até ele aparecer."
-
-        <br><br>
-
-        "Não sabemos o que L.O.B lembra."
-
-        <br><br>
-
-        "Mas ela definitivamente lembra de alguma coisa."
-
-        <br><br>
-
-        — DEPARTAMENTO DE OBSERVAÇÃO
-
-    </div>
-
-
-    <div class="footer">
-
-        ARQUIVO 0108 — L.O.B<br><br>
-
-        NO SECURITY AGENCY<br>
-
-        INTERNAL USE ONLY
-
-    </div>
-
 </div>
+
+
+
+<!-- PROGRAMAS ESPECIALES -->
+
+<div class="section">
+
+    <div class="section-title">
+
+        PROGRAMAS ESPECIALES
+
+    </div>
+
+    <p>
+
+        Algunos individuos requieren métodos de asistencia
+        que no pueden ser realizados mediante procedimientos
+        convencionales.
+
+    </p>
+
+    <p>
+
+        Para estos casos existen nuestros programas
+        especializados.
+
+    </p>
+
+    <p>
+
+        Entre ellos se encuentra el programa:
+
+    </p>
+
+    <div class="highlight">
+
+        PROJECT <b>R</b>
+
+    </div>
+
+    <p>
+
+        <span class="secret">
+
+        El objetivo real del proyecto no aparece en esta versión
+        del documento.
+
+        </span>
+
+    </p>
+
+    <p>
+
+        Toda información adicional requiere autorización
+        de nivel <span class="red">IV</span> o superior.
+
+    </p>
 
 </div>
 
 
-<script>
 
-function setLanguage(language) {
+<!-- PIE -->
 
-    document.querySelectorAll(".lang").forEach(function(element) {
-        element.classList.remove("active");
-    });
+<div class="footer">
 
-    document.getElementById(language).classList.add("active");
+    NO SECURITY AGENCY<br>
 
-}
+    ESTABLISHED 1899<br><br>
 
-</script>
+    "WE HELP PEOPLE."<br><br>
+
+    INTERNAL ARCHIVE — VERSION 4.7
+
+</div>
+
+
+</div>
+
+
+<!-- =========================================
+     CÓDIGO OCULTO PARA FUTURO DEL ARG
+     ========================================= -->
+
+<div class="hidden-code">
+    mybrain
+</div>
+
 
 </body>
 </html>
