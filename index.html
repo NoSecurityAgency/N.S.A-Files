@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NO SECURITY AGENCY — Official Archive</title>
+<title>NO SECURITY AGENCY — INTERNAL RECORDS</title>
 
 <style>
 
@@ -16,44 +15,9 @@
 body {
     margin: 0;
     background:
-        radial-gradient(circle at center, #161616 0%, #050505 50%, #000 100%);
-    color: #999;
+        radial-gradient(circle at center, #111 0%, #050505 45%, #000 100%);
+    color: #d8d8d8;
     font-family: "Courier New", monospace;
-    min-height: 100vh;
-}
-
-/* EFECTO DE PANTALLA ANTIGUA */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.015) 0px,
-            rgba(255,255,255,0.015) 1px,
-            transparent 1px,
-            transparent 4px
-        );
-
-    z-index: 100;
-}
-
-/* BARRA SUPERIOR */
-
-.topbar {
-    border-bottom: 1px solid #333;
-    padding: 15px 25px;
-
-    font-size: 12px;
-    letter-spacing: 3px;
-
-    color: #666;
-
-    background: #020202;
 }
 
 /* CONTENEDOR */
@@ -61,889 +25,457 @@ body::before {
 .container {
     width: 90%;
     max-width: 1100px;
-
     margin: auto;
-
-    padding: 45px 0 80px;
+    padding: 50px 0;
 }
 
-/* CABECERA */
+/* ENCABEZADO */
 
 .header {
-    border: 1px solid #333;
-
-    padding: 35px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.025),
-            rgba(0,0,0,0.8)
-        );
-
-    box-shadow:
-        0 0 30px rgba(0,0,0,0.8);
+    border-bottom: 1px solid #333;
+    padding-bottom: 25px;
+    margin-bottom: 40px;
 }
 
-.logo {
+.header h1 {
+    margin: 0;
     font-size: 38px;
-
-    color: #ddd;
-
-    letter-spacing: 7px;
-
-    font-weight: bold;
+    letter-spacing: 6px;
+    color: #eee;
 }
 
-.established {
+.header p {
+    color: #777;
     margin-top: 10px;
-
-    color: #555;
-
-    letter-spacing: 3px;
-
-    font-size: 13px;
 }
 
-.header-line {
-    margin-top: 25px;
-
-    width: 100%;
-
-    height: 1px;
-
-    background: #292929;
-}
-
-/* TEXTO */
+/* SECCIONES */
 
 .section {
-    margin-top: 30px;
-
-    border: 1px solid #292929;
-
-    padding: 28px;
-
-    background: rgba(0,0,0,0.65);
+    margin-bottom: 55px;
 }
 
-.section-title {
-    color: #aaa;
-
-    font-size: 17px;
-
-    letter-spacing: 4px;
-
-    border-bottom: 1px solid #292929;
-
-    padding-bottom: 10px;
-
-    margin-bottom: 20px;
+.section h2 {
+    font-size: 21px;
+    color: #ddd;
+    letter-spacing: 3px;
+    border-left: 3px solid #777;
+    padding-left: 12px;
 }
 
-p {
-    color: #888;
-
-    font-size: 14px;
-
-    line-height: 1.9;
+.section p {
+    line-height: 1.7;
+    color: #999;
 }
 
-/* FRASES DESTACADAS */
+/* TARJETAS */
 
-.highlight {
-    border-left: 2px solid #555;
-
-    padding: 15px 20px;
-
-    margin: 20px 0;
-
-    background: rgba(255,255,255,0.015);
-
-    color: #777;
-}
-
-.red {
-    color: #650000;
-}
-
-/* SERVICIOS */
-
-.services {
+.cards {
     display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
 }
 
-.service {
+.card {
+    background: rgba(15,15,15,0.9);
     border: 1px solid #292929;
-
     padding: 20px;
-
-    background: #030303;
-
-    transition: .2s;
+    min-height: 130px;
+    transition: 0.2s;
 }
 
-.service:hover {
+.card:hover {
     border-color: #555;
-
-    background: #080808;
+    background: #111;
 }
 
-.service-title {
-    color: #aaa;
-
-    font-size: 14px;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 10px;
+.card h3 {
+    margin-top: 0;
+    color: #ccc;
 }
 
-.service p {
+.card p {
     font-size: 13px;
-}
-
-/* IMAGENES */
-
-.gallery {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 18px;
-
-    margin-top: 20px;
-}
-
-.image-card {
-    border: 1px solid #292929;
-
-    background: #030303;
-
-    overflow: hidden;
-}
-
-.image-card img {
-    width: 100%;
-
-    height: 260px;
-
-    object-fit: cover;
-
-    display: block;
-
-    filter:
-        grayscale(35%)
-        contrast(90%)
-        brightness(70%);
-}
-
-.image-card:hover img {
-    filter:
-        grayscale(10%)
-        contrast(100%)
-        brightness(85%);
-}
-
-.image-caption {
-    padding: 13px;
-
-    color: #666;
-
-    font-size: 11px;
-
-    letter-spacing: 1px;
 }
 
 /* HISTORIA */
 
 .timeline {
     border-left: 1px solid #333;
-
     padding-left: 25px;
-
-    margin-top: 20px;
 }
 
-.event {
-    margin-bottom: 28px;
-
-    position: relative;
-}
-
-.event::before {
-    content: "";
-
-    position: absolute;
-
-    left: -31px;
-
-    top: 5px;
-
-    width: 10px;
-
-    height: 10px;
-
-    border: 1px solid #666;
-
-    background: #050505;
+.timeline div {
+    margin-bottom: 25px;
 }
 
 .year {
     color: #aaa;
-
-    letter-spacing: 3px;
-
-    font-size: 13px;
+    font-weight: bold;
 }
 
-/* AYUDA */
+/* IMÁGENES */
 
-.help {
-    border: 1px solid #333;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.02),
-            transparent
-        );
-
-    padding: 25px;
-
-    margin-top: 20px;
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-.help-title {
-    color: #bbb;
-
-    font-size: 15px;
-
-    letter-spacing: 3px;
+.image-box {
+    border: 1px solid #292929;
+    background: #080808;
+    padding: 10px;
 }
 
-/* PIE */
+.image-box img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%) brightness(75%);
+}
 
-.footer {
-    margin-top: 50px;
-
-    text-align: center;
-
-    color: #333;
-
+.image-box p {
     font-size: 11px;
-
-    letter-spacing: 2px;
-
-    line-height: 2;
+    color: #666;
+    margin-bottom: 2px;
 }
 
-/* TEXTO OCULTO DEL ARG */
+/* PROJECT R */
 
-.secret {
-    color: #000;
-
-    background: #000;
-
-    user-select: text;
+.project {
+    border: 1px solid #333;
+    padding: 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(20,20,20,0.8),
+        rgba(0,0,0,0.9)
+    );
 }
 
-.secret::selection {
-    color: white;
-
-    background: #444;
+.project h3 {
+    letter-spacing: 4px;
+    color: #ddd;
 }
 
-/* CODIGO OCULTO */
+.project .classified {
+    color: #050505;
+    background: #050505;
+    user-select: none;
+}
+
+/* FRASE FINAL */
+
+.commitment {
+    text-align: center;
+    padding: 45px 10px;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.commitment h2 {
+    border: none;
+    padding: 0;
+    font-size: 25px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: #444;
+    font-size: 11px;
+}
+
+/* MYBRAIN */
 
 .hidden-code {
     position: fixed;
-
     bottom: 4px;
     right: 5px;
 
     font-family: "Courier New", monospace;
-
     font-size: 7px;
 
     color: #010101;
-
     background: transparent;
 
     opacity: 0.08;
 
     pointer-events: none;
-
     user-select: none;
 
-    z-index: 5;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:700px) {
-
-    .container {
-        width: 94%;
-    }
-
-    .logo {
-        font-size: 24px;
-
-        letter-spacing: 4px;
-    }
-
-    .services {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .section {
-        padding: 20px;
-    }
-
+    z-index: 9999;
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<div class="topbar">
-
-    NO SECURITY AGENCY — OFFICIAL INFORMATION ARCHIVE
-
-</div>
-
-
 <div class="container">
 
+    <!-- ENCABEZADO -->
 
-<!-- CABECERA -->
-
-<div class="header">
-
-    <div class="logo">
-
-        NO SECURITY AGENCY
-
-    </div>
-
-    <div class="established">
-
-        ESTABLISHED — 1899
-
-    </div>
-
-    <div class="header-line"></div>
-
-    <p>
-
-        Una organización dedicada a la protección,
-        investigación y asistencia de individuos
-        afectados por situaciones que no pueden
-        ser atendidas mediante métodos convencionales.
-
-    </p>
-
-</div>
-
-
-
-<!-- QUIENES SOMOS -->
-
-<div class="section">
-
-    <div class="section-title">
-
-        ¿QUIÉNES SOMOS?
-
-    </div>
-
-    <p>
-
-        La <b>NO SECURITY AGENCY</b> fue fundada en 1899
-        con un objetivo sencillo:
-
-        <b>ayudar a las personas.</b>
-
-    </p>
-
-    <p>
-
-        Durante más de un siglo hemos desarrollado
-        sistemas destinados a proteger a individuos,
-        estudiar fenómenos desconocidos y proporcionar
-        asistencia a quienes han perdido la posibilidad
-        de llevar una vida normal.
-
-    </p>
-
-    <div class="highlight">
-
-        "Una persona no debería ser abandonada
-        solamente porque su situación sea diferente."
-
-    </div>
-
-    <p>
-
-        Nuestra organización trabaja con especialistas
-        en tecnología, comportamiento humano,
-        sistemas artificiales y entornos virtuales.
-
-    </p>
-
-</div>
-
-
-
-<!-- FUNCIONES -->
-
-<div class="section">
-
-    <div class="section-title">
-
-        FUNCIONES DE LA AGENCIA
-
-    </div>
-
-
-    <div class="services">
-
-
-        <div class="service">
-
-            <div class="service-title">
-
-                ASISTENCIA
-
-            </div>
-
-            <p>
-
-                Ayudamos a individuos que han sufrido
-                situaciones que afectan su vida cotidiana.
-
-            </p>
-
-        </div>
-
-
-        <div class="service">
-
-            <div class="service-title">
-
-                INVESTIGACIÓN
-
-            </div>
-
-            <p>
-
-                Estudiamos fenómenos que no pueden ser
-                explicados mediante métodos convencionales.
-
-            </p>
-
-        </div>
-
-
-        <div class="service">
-
-            <div class="service-title">
-
-                RECUPERACIÓN
-
-            </div>
-
-            <p>
-
-                Desarrollamos métodos para recuperar
-                información, recuerdos y capacidades
-                perdidas.
-
-            </p>
-
-        </div>
-
-
-        <div class="service">
-
-            <div class="service-title">
-
-                SIMULACIONES
-
-            </div>
-
-            <p>
-
-                Creamos entornos artificiales destinados
-                a estudiar el comportamiento humano
-                y ayudar a pacientes.
-
-            </p>
-
-        </div>
-
-
-        <div class="service">
-
-            <div class="service-title">
-
-                PROTECCIÓN
-
-            </div>
-
-            <p>
-
-                Protegemos a personas que puedan estar
-                expuestas a fenómenos o situaciones
-                desconocidas.
-
-            </p>
-
-        </div>
-
-
-        <div class="service">
-
-            <div class="service-title">
-
-                REINTEGRACIÓN
-
-            </div>
-
-            <p>
-
-                Nuestro objetivo final es permitir que
-                nuestros pacientes puedan volver a
-                desarrollar una vida normal.
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-
-<!-- HISTORIA -->
-
-<div class="section">
-
-    <div class="section-title">
-
-        HISTORIA
-
-    </div>
-
-
-    <div class="timeline">
-
-
-        <div class="event">
-
-            <div class="year">
-                1899
-            </div>
-
-            <p>
-
-                Se establece oficialmente la
-                NO SECURITY AGENCY.
-
-            </p>
-
-        </div>
-
-
-        <div class="event">
-
-            <div class="year">
-                1924
-            </div>
-
-            <p>
-
-                Se inaugura el primer centro dedicado
-                a la investigación de comportamiento
-                humano.
-
-            </p>
-
-        </div>
-
-
-        <div class="event">
-
-            <div class="year">
-                1968
-            </div>
-
-            <p>
-
-                La agencia comienza a desarrollar
-                sistemas de simulación artificial.
-
-            </p>
-
-        </div>
-
-
-        <div class="event">
-
-            <div class="year">
-                1989
-            </div>
-
-            <p>
-
-                Se crea el primer sistema capaz de
-                reproducir entornos virtuales completos.
-
-            </p>
-
-        </div>
-
-
-        <div class="event">
-
-            <div class="year">
-                2006
-            </div>
-
-            <p>
-
-                Se inicia el proyecto denominado
-                <b>"R"</b>.
-
-            </p>
-
-        </div>
-
-
-        <div class="event">
-
-            <div class="year">
-                2006 — ACTUALIDAD
-            </div>
-
-            <p>
-
-                Los proyectos relacionados con
-                <b>R</b> continúan bajo supervisión
-                especial.
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-
-<!-- ARCHIVO VISUAL -->
-
-<div class="section">
-
-    <div class="section-title">
-
-        ARCHIVO VISUAL — ENTORNOS UTILIZADOS
-
-    </div>
-
-    <p>
-
-        Algunos entornos utilizados durante las primeras
-        investigaciones fueron construidos tomando como
-        referencia espacios virtuales simples y familiares.
-
-    </p>
-
-
-    <div class="gallery">
-
-
-        <div class="image-card">
-
-            <img
-            src="https://tr.rbxcdn.com/180DAY-eb203450356b5ad6112bbafc10bb3848/768/432/Image/Webp/noFilter"
-            alt="Happy Home in Robloxia">
-
-            <div class="image-caption">
-
-                ARCHIVO R-01 — HAPPY HOME
-
-            </div>
-
-        </div>
-
-
-        <div class="image-card">
-
-            <img
-            src="https://www.webdesignmuseum.org/images/uploads/roblox-2006.png"
-            alt="Roblox 2006">
-
-            <div class="image-caption">
-
-                ARCHIVO R-02 — EARLY R ENVIRONMENT
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-
-<!-- AYUDA -->
-
-<div class="section">
-
-    <div class="section-title">
-
-        NUESTRO COMPROMISO
-
-    </div>
-
-
-    <div class="help">
-
-        <div class="help-title">
-
-            "AYUDAR ES ENCONTRAR UNA SOLUCIÓN."
-
-        </div>
+    <div class="header">
+        <h1>NO SECURITY AGENCY</h1>
 
         <p>
-
-            Cuando una persona llega a nuestras instalaciones,
-            nuestro primer objetivo es comprender su situación.
-
+            ESTABLISHED — 1899
         </p>
 
         <p>
+            INTERNAL INFORMATION DATABASE
+        </p>
+    </div>
 
-            No importa cuánto tiempo haya pasado.
 
-            No importa qué tan complicada sea la situación.
+    <!-- QUIÉNES SOMOS -->
 
+    <div class="section">
+
+        <h2>¿QUIÉNES SOMOS?</h2>
+
+        <p>
+            NO SECURITY AGENCY es una organización dedicada a la asistencia,
+            investigación y protección de individuos mediante métodos
+            científicos, tecnológicos y psicológicos.
         </p>
 
         <p>
+            Desde nuestra fundación en 1899, nuestra misión principal ha sido
+            encontrar soluciones para personas que requieren asistencia
+            especializada.
+        </p>
 
-            La NO SECURITY AGENCY siempre buscará
-            una solución.
-
+        <p>
+            La agencia trabaja con sistemas de recuperación, simulaciones,
+            investigación humana y entornos controlados.
         </p>
 
     </div>
 
-</div>
 
+    <!-- FUNCIONES -->
 
+    <div class="section">
 
-<!-- PROGRAMAS ESPECIALES -->
+        <h2>FUNCIONES DE LA AGENCIA</h2>
 
-<div class="section">
+        <div class="cards">
 
-    <div class="section-title">
+            <div class="card">
+                <h3>ASISTENCIA</h3>
+                <p>
+                    Ayuda a individuos que requieren tratamientos o métodos
+                    especiales de recuperación.
+                </p>
+            </div>
 
-        PROGRAMAS ESPECIALES
+            <div class="card">
+                <h3>INVESTIGACIÓN</h3>
+                <p>
+                    Investigación de nuevas tecnologías aplicadas al
+                    comportamiento y la conciencia humana.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>RECUPERACIÓN</h3>
+                <p>
+                    Desarrollo de métodos destinados a preservar información
+                    cognitiva y memoria.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>SIMULACIONES</h3>
+                <p>
+                    Creación de entornos virtuales controlados para pruebas
+                    experimentales.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>PROTECCIÓN</h3>
+                <p>
+                    Protección de individuos y datos considerados de alta
+                    importancia.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>REINTEGRACIÓN</h3>
+                <p>
+                    Métodos experimentales destinados a facilitar la
+                    reintegración de individuos.
+                </p>
+            </div>
+
+        </div>
 
     </div>
 
-    <p>
 
-        Algunos individuos requieren métodos de asistencia
-        que no pueden ser realizados mediante procedimientos
-        convencionales.
+    <!-- HISTORIA -->
 
-    </p>
+    <div class="section">
 
-    <p>
+        <h2>HISTORIA</h2>
 
-        Para estos casos existen nuestros programas
-        especializados.
+        <div class="timeline">
 
-    </p>
+            <div>
+                <span class="year">1899</span>
+                <p>
+                    Fundación de NO SECURITY AGENCY.
+                </p>
+            </div>
 
-    <p>
+            <div>
+                <span class="year">1924</span>
+                <p>
+                    Creación del primer centro especializado en
+                    comportamiento humano.
+                </p>
+            </div>
 
-        Entre ellos se encuentra el programa:
+            <div>
+                <span class="year">1968</span>
+                <p>
+                    Introducción de sistemas de simulación experimental.
+                </p>
+            </div>
 
-    </p>
+            <div>
+                <span class="year">1989</span>
+                <p>
+                    Desarrollo de entornos virtuales controlados.
+                </p>
+            </div>
 
-    <div class="highlight">
+            <div>
+                <span class="year">2006</span>
+                <p>
+                    Inicio del denominado <b>PROJECT R</b>.
+                </p>
+            </div>
 
-        PROJECT <b>R</b>
+            <div>
+                <span class="year">2006 — PRESENTE</span>
+                <p>
+                    PROJECT R permanece bajo supervisión especial.
+                </p>
+            </div>
+
+        </div>
 
     </div>
 
-    <p>
 
-        <span class="secret">
+    <!-- ARCHIVO VISUAL -->
 
-        El objetivo real del proyecto no aparece en esta versión
-        del documento.
+    <div class="section">
 
-        </span>
+        <h2>ARCHIVO VISUAL — ENTORNOS UTILIZADOS</h2>
 
-    </p>
+        <div class="image-grid">
 
-    <p>
+            <div class="image-box">
 
-        Toda información adicional requiere autorización
-        de nivel <span class="red">IV</span> o superior.
+                <img
+                    src="this noFilter.png"
+                    alt="Happy Home"
+                >
 
-    </p>
+                <p>
+                    ARCHIVE IMAGE — HAPPY HOME ENVIRONMENT
+                </p>
+
+            </div>
+
+
+            <div class="image-box">
+
+                <img
+                    src="cfe80123a5b21b3b934866aace1599836c8768a6_2_690x345.png"
+                    alt="Early R"
+                >
+
+                <p>
+                    ARCHIVE IMAGE — EARLY R ENVIRONMENT
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- COMPROMISO -->
+
+    <div class="commitment">
+
+        <h2>
+            AYUDAR ES ENCONTRAR UNA SOLUCIÓN.
+        </h2>
+
+        <p>
+            NO SECURITY AGENCY
+        </p>
+
+    </div>
+
+
+    <!-- PROJECT R -->
+
+    <div class="section">
+
+        <h2>PROGRAMAS ESPECIALES</h2>
+
+        <div class="project">
+
+            <h3>PROJECT R</h3>
+
+            <p>
+                Programa experimental destinado al desarrollo de entornos
+                virtuales avanzados.
+            </p>
+
+            <p>
+                Estado:
+                <b>ACTIVO</b>
+            </p>
+
+            <p>
+                Nivel de autorización:
+                <b>IV+</b>
+            </p>
+
+            <p class="classified">
+                El objetivo real del programa no se encuentra disponible
+                en la versión pública de este documento.
+            </p>
+
+        </div>
+
+    </div>
 
 </div>
 
 
-
-<!-- PIE -->
-
-<div class="footer">
-
-    NO SECURITY AGENCY<br>
-
-    ESTABLISHED 1899<br><br>
-
-    "WE HELP PEOPLE."<br><br>
-
-    INTERNAL ARCHIVE — VERSION 4.7
-
-</div>
-
-
-</div>
+<footer>
+    NO SECURITY AGENCY © 1899 — PRESENT
+    <br>
+    INTERNAL ARCHIVE — AUTHORIZED PERSONNEL ONLY
+</footer>
 
 
 <!-- =========================================
-     CÓDIGO OCULTO PARA FUTURO DEL ARG
+     CÓDIGO OCULTO PARA EL FUTURO DEL ARG
      ========================================= -->
 
 <div class="hidden-code">
